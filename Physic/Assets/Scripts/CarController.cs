@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.Rendering.Universal;
 using UnityEngine;
 using static CarController;
 
@@ -19,24 +21,42 @@ public class CarController : MonoBehaviour
     }
 
     [SerializeField]
-    private List<Wheel> wheels = new List<Wheel>();
+    private ParticleSystem smokeParticle;
 
-    private float horizontalInput, verticalInput;
-    private float currentSteerAngle, currentbreakForce;
-    private bool isBreaking;
+    [SerializeField]
+    private List<Wheel> wheels = new List<Wheel>();
 
     [SerializeField]
     private float motorForce, breakForce, maxSteerAngle;
+
     [SerializeField]
-    Material brakeMaterial;
+    private TextMeshProUGUI speedTextKPH, speedTextMPH;
+
     [SerializeField]
-    private Color brakeColor;
+    Material brakeMaterial, reverseMaterial;
+    [SerializeField]
+    private Color brakeColor, reverseColor;
+    [SerializeField]
+    private int brakeColorIntensity;
+    [SerializeField]
+    private int reverseColorIntensity;
+
+    private Rigidbody rb;
+
+    private static float milesConvert = 0.6213711922f;
+    private static float kilometersConvert = 3.6f;
+    private float speed;
+    private float steerInput, gasInput;
+    private float currentSteerAngle, currentbreakForce;
+    private bool isBreaking;
+
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -46,18 +66,27 @@ public class CarController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        CaculateSpeed();
         GetInput();
         HandleMotor();
         HandleSteering();
         UpdateWheels();
+        LightControl();
+    }
+    private void CaculateSpeed()
+    {
+        speed = rb.velocity.magnitude * kilometersConvert;
+        speedTextKPH.text = Mathf.FloorToInt(speed).ToString();
+        speed *= milesConvert;
+        speedTextMPH.text = Mathf.FloorToInt(speed).ToString();
     }
     private void GetInput()
     {
         // Steering Input
-        horizontalInput = Input.GetAxis("Horizontal");
+        steerInput = Input.GetAxis("Horizontal");
 
         // Acceleration Input
-        verticalInput = Input.GetAxis("Vertical");
+        gasInput = Input.GetAxis("Vertical");
 
         // Breaking Input
         isBreaking = Input.GetKey(KeyCode.Space);
@@ -65,25 +94,17 @@ public class CarController : MonoBehaviour
     private void HandleMotor()
     {
 
-      /*  wheels[0].collider.motorTorque = verticalInput * motorForce;
-        wheels[1].collider.motorTorque = verticalInput * motorForce;*/
+        /*  wheels[0].collider.motorTorque = verticalInput * motorForce;
+          wheels[1].collider.motorTorque = verticalInput * motorForce;*/
         foreach (var wheel in wheels)
         {
             if (wheel.type == WheelType.Front)
             {
-                wheel.collider.motorTorque = verticalInput * motorForce;
+                wheel.collider.motorTorque = gasInput * motorForce;
             }
         }
         currentbreakForce = isBreaking ? breakForce : 0f;
         ApplyBreaking();
-        if (isBreaking)
-        {
-            brakeMaterial.SetColor("_EmissionColor", brakeColor * 3);
-        }
-        else
-        {
-            brakeMaterial.SetColor("_EmissionColor", brakeColor * 1);
-        }
     }
 
     private void ApplyBreaking()
@@ -100,7 +121,7 @@ public class CarController : MonoBehaviour
 
     private void HandleSteering()
     {
-        currentSteerAngle = maxSteerAngle * horizontalInput;
+        currentSteerAngle = maxSteerAngle * steerInput;
         foreach (var wheel in wheels)
         {
             if (wheel.type == WheelType.Front)
@@ -108,8 +129,8 @@ public class CarController : MonoBehaviour
                 wheel.collider.steerAngle = currentSteerAngle;
             }
         }
-     /*   wheels[0].collider.steerAngle = currentSteerAngle;
-        wheels[1].collider.steerAngle = currentSteerAngle;*/
+        /*   wheels[0].collider.steerAngle = currentSteerAngle;
+           wheels[1].collider.steerAngle = currentSteerAngle;*/
     }
 
     private void UpdateWheels()
@@ -131,5 +152,15 @@ public class CarController : MonoBehaviour
         wheelCollider.GetWorldPose(out pos, out rot);
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
+    }
+
+    private void LightControl()
+    {
+
+        if (gasInput < 0) { reverseMaterial.EnableKeyword("_EMISSION"); }
+        else { reverseMaterial.DisableKeyword("_EMISSION"); }
+
+        reverseMaterial.SetColor("_EmissionColor", reverseColor * (gasInput < 0 ? reverseColorIntensity : 1));
+        brakeMaterial.SetColor("_EmissionColor", brakeColor * (isBreaking ? brakeColorIntensity : 1));
     }
 }
