@@ -43,8 +43,8 @@ public class CarController : MonoBehaviour
 
     private Rigidbody rb;
 
-    private static float milesConvert = 0.6213711922f;
-    private static float kilometersConvert = 3.6f;
+    private const float milesConvert = 0.6213711922f;
+    private const float kilometersConvert = 3.6f;
     private float speed;
     private float steerInput, gasInput;
     private float currentSteerAngle, currentbreakForce;
