@@ -12,13 +12,6 @@ public class CarController : MonoBehaviour
         Front,
         Rear
     }
-    [System.Serializable]
-    public struct Wheel
-    {
-        public WheelType type;
-        public WheelCollider collider;
-        public Transform transform;
-    }
 
     [SerializeField]
     private ParticleSystem smokeParticle;
@@ -42,13 +35,14 @@ public class CarController : MonoBehaviour
     private int reverseColorIntensity;
 
     private Rigidbody rb;
+    private LightController lightController;
 
     private const float milesConvert = 0.6213711922f;
     private const float kilometersConvert = 3.6f;
     private float speed;
     private float steerInput, gasInput;
     private float currentSteerAngle, currentbreakForce;
-    private bool isBreaking;
+    private bool isBreaking, isReverse;
 
 
 
@@ -57,6 +51,7 @@ public class CarController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        lightController = GetComponent<LightController>();
     }
 
     // Update is called once per frame
@@ -157,10 +152,26 @@ public class CarController : MonoBehaviour
     private void LightControl()
     {
 
-        if (gasInput < 0) { reverseMaterial.EnableKeyword("_EMISSION"); }
-        else { reverseMaterial.DisableKeyword("_EMISSION"); }
-
-        reverseMaterial.SetColor("_EmissionColor", reverseColor * (gasInput < 0 ? reverseColorIntensity : 1));
+        if (gasInput < 0f)
+        {
+            isReverse = true;
+            reverseMaterial.EnableKeyword("_EMISSION");
+        }
+        else
+        {
+            isReverse = false;
+            reverseMaterial.DisableKeyword("_EMISSION");
+        }
         brakeMaterial.SetColor("_EmissionColor", brakeColor * (isBreaking ? brakeColorIntensity : 1));
+        reverseMaterial.SetColor("_EmissionColor", reverseColor * (gasInput < 0 ? reverseColorIntensity : 1));
+        lightController.ReverseLightStatus(isReverse);
+        lightController.BarkeLightStatus(isBreaking);
     }
+}
+[System.Serializable]
+public class Wheel
+{
+    public WheelType type;
+    public WheelCollider collider;
+    public Transform transform;
 }
