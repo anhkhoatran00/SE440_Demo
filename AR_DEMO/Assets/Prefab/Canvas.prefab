@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 35, y: -35}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -80}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4775938446992385332
 CanvasRenderer:
@@ -94,15 +94,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 6767339568357547379}
   - component: {fileID: 2254797214531043477}
   - component: {fileID: 5338694962436524284}
-  - component: {fileID: 3027097015946684431}
+  - component: {fileID: 4294747183784225684}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3027097015946684431
+--- !u!114 &4294747183784225684
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2798323828849920284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 051a0b5c125d3ef4e8ff4f5c87b5c281, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fca253edf117b44289ed335a52bb040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshProUGUI: {fileID: 5668813733262416812}
@@ -268,10 +268,10 @@ GameObject:
   - component: {fileID: 8740246400223851154}
   - component: {fileID: 3065793775522219480}
   - component: {fileID: 3840231070536447958}
-  - component: {fileID: 2006858588259399718}
+  - component: {fileID: 2147870994447079449}
   m_Layer: 5
   m_Name: Gas_Button
-  m_TagString: Untagged
+  m_TagString: GasButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2006858588259399718
+--- !u!114 &2147870994447079449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4222823658564898012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 833d3536cd9ea0a43a2d3af9daa7a615, type: 3}
+  m_Script: {fileID: 11500000, guid: c73ccc689d8c6b343add4b596c9fec6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPressed: 0
@@ -404,10 +404,10 @@ GameObject:
   - component: {fileID: 6204135953537080722}
   - component: {fileID: 3588318783664336651}
   - component: {fileID: 1407706203902906555}
-  - component: {fileID: 6055036392956720888}
+  - component: {fileID: 8367114451932606111}
   m_Layer: 5
   m_Name: Reverse_Button
-  m_TagString: Untagged
+  m_TagString: ReverseButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -513,7 +513,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6055036392956720888
+--- !u!114 &8367114451932606111
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4570382695023170148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 833d3536cd9ea0a43a2d3af9daa7a615, type: 3}
+  m_Script: {fileID: 11500000, guid: c73ccc689d8c6b343add4b596c9fec6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPressed: 0
@@ -540,10 +540,10 @@ GameObject:
   - component: {fileID: 7382552871561959027}
   - component: {fileID: 17372996652618975}
   - component: {fileID: 4097891358786254108}
-  - component: {fileID: 6705168503280907112}
+  - component: {fileID: 3888177196184428792}
   m_Layer: 5
   m_Name: Brake_Button
-  m_TagString: Untagged
+  m_TagString: BrakeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -649,7 +649,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6705168503280907112
+--- !u!114 &3888177196184428792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -658,7 +658,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7063340964513052956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 833d3536cd9ea0a43a2d3af9daa7a615, type: 3}
+  m_Script: {fileID: 11500000, guid: c73ccc689d8c6b343add4b596c9fec6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPressed: 0

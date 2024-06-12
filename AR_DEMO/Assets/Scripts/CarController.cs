@@ -35,6 +35,7 @@ public class CarController : MonoBehaviour
     Material brakeMaterial;
     [SerializeField]
     private Color brakeColor;
+    InputHandler inputHandler;
 
 
     // Start is called before the first frame update
@@ -43,6 +44,8 @@ public class CarController : MonoBehaviour
         gasPedal = GameObject.FindWithTag("GasButton").GetComponent<Mybutton>();
         brakePedal = GameObject.FindWithTag("BrakeButton").GetComponent<Mybutton>();
         reversePedal = GameObject.FindWithTag("ReverseButton").GetComponent<Mybutton>();
+
+        inputHandler = GetComponent<InputHandler>();
     }
 
     // Update is called once per frame
@@ -62,6 +65,8 @@ public class CarController : MonoBehaviour
         // Steering Input
         /* horizontalInput = Input.GetAxis("Horizontal");*/
 
+        Vector2 axisMovement = inputHandler.GetInputMovement();
+
         steeringInput = SimpleInput.GetAxis("Horizontal");
 
         if (!gasPedal.isPressed || !reversePedal)
@@ -71,8 +76,9 @@ public class CarController : MonoBehaviour
 
         // Acceleration Input
         /*verticalInput = Input.GetAxis("Vertical");*/
+        steeringInput = axisMovement.x;
 
-        // gasInput = SimpleInput.GetAxis("Vertical");
+        gasInput = axisMovement.y;
       
         gasInput += gasPedal.dampenPress;
        
@@ -96,6 +102,7 @@ public class CarController : MonoBehaviour
         }
         currentbreakForce = isBreaking ? breakForce : 0f;
         ApplyBreaking();
+
         if (isBreaking)
         {
             brakeMaterial.SetColor("_EmissionColor", brakeColor * 3);
