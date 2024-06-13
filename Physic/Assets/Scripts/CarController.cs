@@ -5,6 +5,16 @@ using UnityEditor.Rendering.Universal;
 using UnityEngine;
 using static CarController;
 
+
+[System.Serializable]
+public class Wheel
+{
+    public WheelType type;
+    public WheelCollider collider;
+    public Transform transform;
+}
+
+[RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour
 {
     public enum WheelType
@@ -23,38 +33,31 @@ public class CarController : MonoBehaviour
     private float motorForce, breakForce, maxSteerAngle;
 
     [SerializeField]
+    private Vector3 centerOfMass;
+
+    [SerializeField]
     private TextMeshProUGUI speedTextKPH, speedTextMPH;
 
-    [SerializeField]
-    Material brakeMaterial, reverseMaterial;
-    [SerializeField]
-    private Color brakeColor, reverseColor;
-    [SerializeField]
-    private int brakeColorIntensity;
-    [SerializeField]
-    private int reverseColorIntensity;
-
     private Rigidbody rb;
-    private LightController lightController;
+    private InputHandler inputHandler;
 
     private const float milesConvert = 0.6213711922f;
     private const float kilometersConvert = 3.6f;
     private float speed;
-    private float steerInput, gasInput;
+    public float SteerInput {  get; private set; }
+    public float GasInput { get; private set; }
+    public bool IsBreaking { get; private set; }
+    public bool LightOn { get; private set; }
+
     private float currentSteerAngle, currentbreakForce;
-    private bool isBreaking, isReverse;
 
-
-
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        lightController = GetComponent<LightController>();
-    }
+        inputHandler = GetComponent<InputHandler>();
 
-    // Update is called once per frame
+        rb.centerOfMass = centerOfMass;
+    }
     void Update()
     {
 
@@ -66,7 +69,6 @@ public class CarController : MonoBehaviour
         HandleMotor();
         HandleSteering();
         UpdateWheels();
-        LightControl();
     }
     private void CaculateSpeed()
     {
@@ -77,14 +79,17 @@ public class CarController : MonoBehaviour
     }
     private void GetInput()
     {
+        Vector2 axisMovement = inputHandler.GetInputMovement();
         // Steering Input
-        steerInput = Input.GetAxis("Horizontal");
+        SteerInput = axisMovement.x;
 
         // Acceleration Input
-        gasInput = Input.GetAxis("Vertical");
+        GasInput = axisMovement.y;
 
         // Breaking Input
-        isBreaking = Input.GetKey(KeyCode.Space);
+        IsBreaking = inputHandler.GetBrakeInput();
+
+        LightOn = inputHandler.GetLightInput();
     }
     private void HandleMotor()
     {
@@ -95,10 +100,10 @@ public class CarController : MonoBehaviour
         {
             if (wheel.type == WheelType.Front)
             {
-                wheel.collider.motorTorque = gasInput * motorForce;
+                wheel.collider.motorTorque = GasInput * motorForce;
             }
         }
-        currentbreakForce = isBreaking ? breakForce : 0f;
+        currentbreakForce = IsBreaking ? breakForce : 0f;
         ApplyBreaking();
     }
 
@@ -116,7 +121,7 @@ public class CarController : MonoBehaviour
 
     private void HandleSteering()
     {
-        currentSteerAngle = maxSteerAngle * steerInput;
+        currentSteerAngle = maxSteerAngle * SteerInput;
         foreach (var wheel in wheels)
         {
             if (wheel.type == WheelType.Front)
@@ -148,30 +153,5 @@ public class CarController : MonoBehaviour
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
     }
-
-    private void LightControl()
-    {
-
-        if (gasInput < 0f)
-        {
-            isReverse = true;
-            reverseMaterial.EnableKeyword("_EMISSION");
-        }
-        else
-        {
-            isReverse = false;
-            reverseMaterial.DisableKeyword("_EMISSION");
-        }
-        brakeMaterial.SetColor("_EmissionColor", brakeColor * (isBreaking ? brakeColorIntensity : 1));
-        reverseMaterial.SetColor("_EmissionColor", reverseColor * (gasInput < 0 ? reverseColorIntensity : 1));
-        lightController.ReverseLightStatus(isReverse);
-        lightController.BarkeLightStatus(isBreaking);
-    }
 }
-[System.Serializable]
-public class Wheel
-{
-    public WheelType type;
-    public WheelCollider collider;
-    public Transform transform;
-}
+

@@ -1113,6 +1113,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1291972672 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8199346252410257781, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1467548502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1350201071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,6 +1314,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5522713366460605592, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumSlip
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7223371193904234822, guid: 04e2c4601b0ecac46abde1d57260e3c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1358,6 +1369,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7314028189177030600, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumSlip
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7535183572253377271, guid: 04e2c4601b0ecac46abde1d57260e3c4,
         type: 3}
       propertyPath: speedTextKPH
@@ -1375,13 +1391,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8453127106587913436, guid: 04e2c4601b0ecac46abde1d57260e3c4,
         type: 3}
+      propertyPath: brakeColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453127106587913436, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      propertyPath: brakeColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453127106587913436, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      propertyPath: brakeColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453127106587913436, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      propertyPath: brakeMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 84b11fd5ec126a74597ce049c486aa22, type: 2}
+    - target: {fileID: 8453127106587913436, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      propertyPath: reverseColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453127106587913436, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      propertyPath: reverseColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453127106587913436, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      propertyPath: reverseColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453127106587913436, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      propertyPath: reverseMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f7235e877dcd21e45929da84b1e9f916, type: 2}
+    - target: {fileID: 8453127106587913436, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      propertyPath: brakeColorIntensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453127106587913436, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
       propertyPath: lightIntensityValue
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453127106587913436, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      propertyPath: reverseColorIntensity
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8199346252410257781, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 2098846331}
+    - targetCorrespondingSourceObject: {fileID: 8199346252410257781, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 2098846330}
   m_SourcePrefab: {fileID: 100100000, guid: 04e2c4601b0ecac46abde1d57260e3c4, type: 3}
 --- !u!1 &1567020867
 GameObject:
@@ -1935,12 +2009,103 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1467548502}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1291972672}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a593c779f0506546ad2164d99b8e07d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2098846330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291972672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b8f7103e521e84383bcda581430f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2098846331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291972672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: a6d206552e026a24baf87e7189f5f292,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2098846330}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8a21ca46-3dc1-4e97-a82a-fc742d35e6bf
+    m_ActionName: CarControl/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2098846330}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: OnBrakeInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1473d66a-9eca-4b78-b022-d486e3d0fac1
+    m_ActionName: CarControl/Brake[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2098846330}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: OnLightInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3cc1a5b4-901c-4322-b978-06d780da7b86
+    m_ActionName: CarControl/Light[/Keyboard/l]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: CarControl
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
