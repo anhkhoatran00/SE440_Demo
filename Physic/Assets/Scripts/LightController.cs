@@ -40,9 +40,12 @@ public class LightController : MonoBehaviour
     private CarController carController;
 
     private bool isReverse;
+    private bool isLightOn;
+    private bool isPressAgain;
     void Start()
     {
         carController = GetComponent<CarController>();
+        //isPressAgain = false;
     }
     private void FixedUpdate()
     {
@@ -56,10 +59,30 @@ public class LightController : MonoBehaviour
             isReverse = false;
             reverseMaterial.DisableKeyword("_EMISSION");
         }
+        if (carController.IsBreaking)
+        {
+            brakeMaterial.EnableKeyword("_EMISSION");
+        }
+        else
+        {
+            brakeMaterial.DisableKeyword("_EMISSION");
+        }
         brakeMaterial.SetColor("_EmissionColor", brakeColor * (carController.IsBreaking ? brakeColorIntensity : 1));
         reverseMaterial.SetColor("_EmissionColor", reverseColor * (carController.GasInput < 0 ? reverseColorIntensity : 1));
-        FrontLightStatus(carController.LightOn);
-        RearLightStatus(carController.LightOn);
+        isLightOn = carController.LightOn;
+        /*  if (isLightOn && !isPressAgain)
+          {
+              isPressAgain = true;
+          }
+          else if(isPressAgain && isLightOn) 
+          {
+              isPressAgain = !isPressAgain;
+          }*/
+        if (isLightOn)
+        {
+            isPressAgain = !isPressAgain;
+            FrontLightStatus(isPressAgain);
+        }
         ReverseLightStatus(isReverse);
         BarkeLightStatus(carController.IsBreaking);
     }
@@ -69,14 +92,7 @@ public class LightController : MonoBehaviour
         {
             if (light.type == LightType.Front)
             {
-                if (light.lightObject.activeInHierarchy)
-                {
-                    light.lightObject.SetActive(isActive);
-                }
-                else
-                {
-                    light.lightObject.SetActive(isActive);
-                }
+                light.lightObject.SetActive(isActive);
             }
         }
     }
@@ -86,14 +102,7 @@ public class LightController : MonoBehaviour
         {
             if (light.type == LightType.Rear)
             {
-                if (light.lightObject.activeInHierarchy)
-                {
-                    light.lightObject.SetActive(isActive);
-                }
-                else
-                {
-                    light.lightObject.SetActive(isActive);
-                }
+                light.lightObject.SetActive(isActive);
             }
         }
     }

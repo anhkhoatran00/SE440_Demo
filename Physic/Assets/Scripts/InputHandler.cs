@@ -6,18 +6,15 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class InputHandler : MonoBehaviour
 {
-    private Vector2 axisLook;
-
     private Vector2 axisMovement;
 
     private bool brakeInput;
 
     private bool lightInput;
-
-    public Vector2 GetInputLook() => axisLook;
     public Vector2 GetInputMovement() => axisMovement;
     public bool GetBrakeInput() => brakeInput;
     public bool GetLightInput() => lightInput;
+   
 
     private void Awake()
     {
@@ -38,24 +35,32 @@ public class InputHandler : MonoBehaviour
     }
     public void OnBrakeInput(InputAction.CallbackContext context)
     {
-        if (context.started)
+        switch (context.phase)
         {
-            brakeInput = true;
+            case InputActionPhase.Started:
+                brakeInput = true;
+                break;
+            case InputActionPhase.Performed:
+                brakeInput = true;
+                break;
+            case InputActionPhase.Canceled:
+                brakeInput = false;
+                break;
         }
-        if (context.canceled)
-        {
-            brakeInput = false;
-        }
-    } 
+    }
     public void OnLightInput(InputAction.CallbackContext context)
     {
-        if (context.started)
+        switch (context.phase)
         {
-            lightInput = true;
-        }
-        if (context.canceled)
-        {
-            lightInput = false;
+            case InputActionPhase.Started:
+                lightInput = true;
+                break;
+           /* case { phase: InputActionPhase.Performed }:
+                lightInput = true;
+                break;*/
+            case InputActionPhase.Canceled:
+                lightInput = false;
+                break;
         }
     }
 }

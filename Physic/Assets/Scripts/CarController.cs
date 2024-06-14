@@ -44,7 +44,7 @@ public class CarController : MonoBehaviour
     private const float milesConvert = 0.6213711922f;
     private const float kilometersConvert = 3.6f;
     private float speed;
-    public float SteerInput {  get; private set; }
+    public float SteerInput { get; private set; }
     public float GasInput { get; private set; }
     public bool IsBreaking { get; private set; }
     public bool LightOn { get; private set; }
