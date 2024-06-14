@@ -93,12 +93,9 @@ public class CarController : MonoBehaviour
     }
     private void HandleMotor()
     {
-
-        /*  wheels[0].collider.motorTorque = verticalInput * motorForce;
-          wheels[1].collider.motorTorque = verticalInput * motorForce;*/
         foreach (var wheel in wheels)
         {
-            if (wheel.type == WheelType.Front)
+            if (wheel.type == WheelType.Rear)
             {
                 wheel.collider.motorTorque = GasInput * motorForce;
             }
@@ -113,10 +110,6 @@ public class CarController : MonoBehaviour
         {
             wheel.collider.brakeTorque = currentbreakForce;
         }
-        /* wheels[0].collider.brakeTorque = currentbreakForce;
-         wheels[1].collider.brakeTorque = currentbreakForce;
-         wheels[2].collider.brakeTorque = currentbreakForce;
-         wheels[3].collider.brakeTorque = currentbreakForce;*/
     }
 
     private void HandleSteering()
@@ -129,8 +122,6 @@ public class CarController : MonoBehaviour
                 wheel.collider.steerAngle = currentSteerAngle;
             }
         }
-        /*   wheels[0].collider.steerAngle = currentSteerAngle;
-           wheels[1].collider.steerAngle = currentSteerAngle;*/
     }
 
     private void UpdateWheels()
@@ -139,10 +130,6 @@ public class CarController : MonoBehaviour
         {
             UpdateSingleWheel(wheel.collider, wheel.transform);
         }
-        /* UpdateSingleWheel(wheels[0].collider, wheels[0].transform);
-         UpdateSingleWheel(wheels[1].collider, wheels[1].transform);
-         UpdateSingleWheel(wheels[2].collider, wheels[2].transform);
-         UpdateSingleWheel(wheels[3].collider, wheels[3].transform);*/
     }
 
     private void UpdateSingleWheel(WheelCollider wheelCollider, Transform wheelTransform)

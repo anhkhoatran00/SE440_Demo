@@ -5,10 +5,10 @@ using UnityEngine;
 public class LightIntensityControl : MonoBehaviour
 {
     [SerializeField]
-    private Light light;
+    private Light carLight;
     void Start()
     {
-
+      
     }
 
     // Update is called once per frame
@@ -18,6 +18,6 @@ public class LightIntensityControl : MonoBehaviour
     }
     public void ChangeIntensity(float intensityValue)
     {
-        light.intensity = intensityValue;
+        carLight.intensity = intensityValue;
     }
 }
