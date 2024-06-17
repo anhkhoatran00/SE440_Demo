@@ -393,7 +393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17067233, y: 0.00000000847696, z: -0.0000000014683262, w: 0.98532784}
+  m_LocalRotation: {x: 0.17067233, y: -0.000000008476966, z: 0.0000000014683269, w: 0.98532784}
   m_LocalPosition: {x: 0, y: 2.7, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -631,7 +631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 70, y: 60}
+  m_AnchoredPosition: {x: 100, y: 100}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &462444220
@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovementRange: 50
+  m_MovementRange: 80
   m_DynamicOriginRange: 100
   m_ControlPath: <Gamepad>/leftStick
   m_Behaviour: 0
@@ -771,7 +771,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467340230}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17067233, y: 0.00000000847696, z: -0.0000000014683262, w: 0.98532784}
+  m_LocalRotation: {x: 0.17067233, y: -0.000000008476966, z: 0.0000000014683269, w: 0.98532784}
   m_LocalPosition: {x: 0, y: 2.7, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1586,6 +1586,11 @@ PrefabInstance:
       propertyPath: speedTextMPH
       value: 
       objectReference: {fileID: 2014179668}
+    - target: {fileID: 7535183572253377271, guid: 04e2c4601b0ecac46abde1d57260e3c4,
+        type: 3}
+      propertyPath: maxSteerAngle
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 7744443390798315292, guid: 04e2c4601b0ecac46abde1d57260e3c4,
         type: 3}
       propertyPath: m_Icon
@@ -2266,6 +2271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b8f7103e521e84383bcda581430f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensitivity: 0.2
 --- !u!114 &2098846331
 MonoBehaviour:
   m_ObjectHideFlags: 0

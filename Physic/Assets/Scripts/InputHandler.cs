@@ -14,7 +14,7 @@ public class InputHandler : MonoBehaviour
     public Vector2 GetInputMovement() => axisMovement;
     public bool GetBrakeInput() => brakeInput;
     public bool GetLightInput() => lightInput;
-   
+
 
     private void Awake()
     {
@@ -55,9 +55,9 @@ public class InputHandler : MonoBehaviour
             case InputActionPhase.Started:
                 lightInput = true;
                 break;
-           /* case { phase: InputActionPhase.Performed }:
-                lightInput = true;
-                break;*/
+            /* case { phase: InputActionPhase.Performed }:
+                 lightInput = true;
+                 break;*/
             case InputActionPhase.Canceled:
                 lightInput = false;
                 break;

@@ -9,7 +9,7 @@ using static CarController;
 [System.Serializable]
 public class Wheel
 {
-    public WheelType type;
+    public WheelType wheelType;
     public WheelCollider collider;
     public Transform transform;
 }
@@ -22,15 +22,30 @@ public class CarController : MonoBehaviour
         Front,
         Rear
     }
+    public enum CarDriveType
+    {
+        FrontWheelDrive,
+        RearWheelDrive,
+        FourWheelDrive
+    }
+    internal enum SpeedType
+    {
+        KPH,
+        MPH
+    }
+
 
     [SerializeField]
-    private ParticleSystem smokeParticle;
+    private CarDriveType carDriveType;
 
     [SerializeField]
     private List<Wheel> wheels = new List<Wheel>();
 
     [SerializeField]
     private float motorForce, breakForce, maxSteerAngle;
+
+    [SerializeField]
+    private SpeedType speedType;
 
     [SerializeField]
     private Vector3 centerOfMass;
@@ -72,17 +87,27 @@ public class CarController : MonoBehaviour
     }
     private void CaculateSpeed()
     {
-        speed = rb.velocity.magnitude * kilometersConvert;
-        speedTextKPH.text = Mathf.FloorToInt(speed).ToString();
-        speed *= milesConvert;
-        speedTextMPH.text = Mathf.FloorToInt(speed).ToString();
+
+        float speed = rb.velocity.magnitude;
+        switch (speedType)
+        {
+            case SpeedType.MPH:
+
+                speed *= milesConvert;
+                speedTextMPH.text = Mathf.FloorToInt(speed).ToString();
+                break;
+
+            case SpeedType.KPH:
+                speed *= kilometersConvert;
+                speedTextKPH.text = Mathf.FloorToInt(speed).ToString();
+                break;
+        }
     }
     private void GetInput()
     {
         Vector2 axisMovement = inputHandler.GetInputMovement();
         // Steering Input
         SteerInput = axisMovement.x;
-
         // Acceleration Input
         GasInput = axisMovement.y;
 
@@ -95,9 +120,24 @@ public class CarController : MonoBehaviour
     {
         foreach (var wheel in wheels)
         {
-            if (wheel.type == WheelType.Rear)
+
+            switch (carDriveType)
             {
-                wheel.collider.motorTorque = GasInput * motorForce;
+                case CarDriveType.FrontWheelDrive:
+                    if (wheel.wheelType == WheelType.Front)
+                    {
+                        wheel.collider.motorTorque = GasInput * motorForce;
+                    }
+                    break;
+                case CarDriveType.RearWheelDrive:
+                    if (wheel.wheelType == WheelType.Rear)
+                    {
+                        wheel.collider.motorTorque = GasInput * motorForce;
+                    }
+                    break;
+                case CarDriveType.FourWheelDrive:
+                    wheel.collider.motorTorque = GasInput * motorForce;
+                    break;
             }
         }
         currentbreakForce = IsBreaking ? breakForce : 0f;
@@ -117,7 +157,7 @@ public class CarController : MonoBehaviour
         currentSteerAngle = maxSteerAngle * SteerInput;
         foreach (var wheel in wheels)
         {
-            if (wheel.type == WheelType.Front)
+            if (wheel.wheelType == WheelType.Front)
             {
                 wheel.collider.steerAngle = currentSteerAngle;
             }
