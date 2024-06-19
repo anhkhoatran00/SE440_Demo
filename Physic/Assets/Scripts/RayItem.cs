@@ -8,6 +8,7 @@ public class RayItem : MonoBehaviour, IRayItem
     [SerializeField] Color deActiveColor;
     [SerializeField] Color activeColor;
     [SerializeField] Renderer gameObjectRenderer;
+    [SerializeField] Vector3 pos;
 
     public void Start()
     {
@@ -18,6 +19,7 @@ public class RayItem : MonoBehaviour, IRayItem
     {
         Debug.Log("OnPointerEnter");
         gameObjectRenderer.material.color = activeColor;
+        UiManager.Instance.ShowInfoPanel(gameObject, transform.position + pos);
     }
 
     public void OnPointerExit()
