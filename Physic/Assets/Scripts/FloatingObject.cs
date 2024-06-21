@@ -28,7 +28,7 @@ public class FloatingObject : MonoBehaviour
         int pointUnderWaterCount = 0;
         foreach (var point in floatPoints)
         {
-            var diff = point.position.y - 0;
+            var diff = point.position.y - OceanManager.Instance.GetWaveHeight(point.position);
             if (diff < 0)
             {
                 rb.AddForceAtPosition(Vector3.up * waterPower * Mathf.Abs(diff), point.position, ForceMode.Acceleration);
