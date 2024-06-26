@@ -1,3 +1,4 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,7 +16,7 @@ public class Wheel
 }
 
 [RequireComponent(typeof(Rigidbody))]
-public class CarController : MonoBehaviour
+public class CarController : NetworkBehaviour
 {
     public enum WheelType
     {
@@ -70,7 +71,7 @@ public class CarController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         inputHandler = GetComponent<InputHandler>();
-
+     
         rb.centerOfMass = centerOfMass;
     }
     void Update()
@@ -79,6 +80,7 @@ public class CarController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (!isLocalPlayer) return;
         CaculateSpeed();
         GetInput();
         HandleMotor();
@@ -87,7 +89,7 @@ public class CarController : MonoBehaviour
     }
     private void CaculateSpeed()
     {
-
+        if(speedTextKPH == null || speedTextMPH == null) return;
         float speed = rb.velocity.magnitude;
         switch (speedType)
         {
@@ -143,7 +145,6 @@ public class CarController : MonoBehaviour
         currentbreakForce = IsBreaking ? breakForce : 0f;
         ApplyBreaking();
     }
-
     private void ApplyBreaking()
     {
         foreach (var wheel in wheels)
@@ -151,7 +152,6 @@ public class CarController : MonoBehaviour
             wheel.collider.brakeTorque = currentbreakForce;
         }
     }
-
     private void HandleSteering()
     {
         currentSteerAngle = maxSteerAngle * SteerInput;
@@ -163,7 +163,6 @@ public class CarController : MonoBehaviour
             }
         }
     }
-
     private void UpdateWheels()
     {
         foreach (var wheel in wheels)
@@ -171,7 +170,6 @@ public class CarController : MonoBehaviour
             UpdateSingleWheel(wheel.collider, wheel.transform);
         }
     }
-
     private void UpdateSingleWheel(WheelCollider wheelCollider, Transform wheelTransform)
     {
         Vector3 pos;

@@ -337,7 +337,7 @@ GameObject:
   m_Layer: 0
   m_Name: Light 1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -456,7 +456,7 @@ GameObject:
   m_Layer: 0
   m_Name: LR_Light
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
@@ -488,8 +488,8 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 8
-  m_Range: 20
-  m_SpotAngle: 100.70529
+  m_Range: 10
+  m_SpotAngle: 120
   m_InnerSpotAngle: 45
   m_CookieSize: 10
   m_Shadows:
@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64041b298e6a7484580da1f0d8daea7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 6727836107883362709}
+  carLight: {fileID: 6727836107883362709}
 --- !u!1 &1787906114196959958
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,7 +753,7 @@ GameObject:
   m_Layer: 0
   m_Name: Light_L
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1109,13 +1109,13 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1.5
+    m_ExtremumSlip: 0.6
+    m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.4
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.8
+    m_ExtremumSlip: 1
     m_ExtremumValue: 0.8
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.3
@@ -1300,8 +1300,8 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1.5
+    m_ExtremumSlip: 0.6
+    m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
@@ -1371,8 +1371,8 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1.5
+    m_ExtremumSlip: 0.6
+    m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
@@ -1787,7 +1787,7 @@ GameObject:
   m_Layer: 0
   m_Name: Light 2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1905,7 +1905,7 @@ GameObject:
   m_Layer: 0
   m_Name: Light_R
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2060,13 +2060,13 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1.5
+    m_ExtremumSlip: 0.6
+    m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.4
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.8
+    m_ExtremumSlip: 1
     m_ExtremumValue: 0.8
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.3
@@ -2448,7 +2448,7 @@ GameObject:
   m_Layer: 0
   m_Name: RR_Light
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
@@ -2480,8 +2480,8 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 8
-  m_Range: 20
-  m_SpotAngle: 100.70529
+  m_Range: 10
+  m_SpotAngle: 120
   m_InnerSpotAngle: 45
   m_CookieSize: 10
   m_Shadows:
@@ -2564,7 +2564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64041b298e6a7484580da1f0d8daea7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 3977962608957702525}
+  carLight: {fileID: 3977962608957702525}
 --- !u!1 &6888959734695473718
 GameObject:
   m_ObjectHideFlags: 0
@@ -2851,7 +2851,7 @@ GameObject:
   m_Layer: 0
   m_Name: Light 3
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3249,8 +3249,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7223371193904234822}
   - component: {fileID: 6046943644681109397}
+  - component: {fileID: 3903105433630958724}
+  - component: {fileID: 6776690453871645079}
   - component: {fileID: 7535183572253377271}
   - component: {fileID: 8453127106587913436}
+  - component: {fileID: 6190547286518022024}
+  - component: {fileID: 5296859855910537527}
+  - component: {fileID: 290914580920803379}
   m_Layer: 0
   m_Name: BMW
   m_TagString: Untagged
@@ -3304,6 +3309,97 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3903105433630958724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199346252410257781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: a6d206552e026a24baf87e7189f5f292,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6776690453871645079}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8a21ca46-3dc1-4e97-a82a-fc742d35e6bf
+    m_ActionName: CarControl/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6776690453871645079}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: OnBrakeInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1473d66a-9eca-4b78-b022-d486e3d0fac1
+    m_ActionName: CarControl/Brake[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6776690453871645079}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: OnLightInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3cc1a5b4-901c-4322-b978-06d780da7b86
+    m_ActionName: CarControl/Light[/Keyboard/l]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: CarControl
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &6776690453871645079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199346252410257781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b8f7103e521e84383bcda581430f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7535183572253377271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3316,31 +3412,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d7a211184ba1840b09816a996243cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smokeParticle: {fileID: 0}
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  carDriveType: 2
   wheels:
-  - type: 0
+  - wheelType: 0
     collider: {fileID: 5522713366460605592}
     transform: {fileID: 4010098904810136654}
-  - type: 0
+  - wheelType: 0
     collider: {fileID: 7314028189177030600}
     transform: {fileID: 928133852037624664}
-  - type: 1
+  - wheelType: 1
     collider: {fileID: 1347193497204775716}
     transform: {fileID: 7007496470563400557}
-  - type: 1
+  - wheelType: 1
     collider: {fileID: 1464626546473791054}
     transform: {fileID: 540956528666975850}
   motorForce: 1500
   breakForce: 50000
-  maxSteerAngle: 40
+  maxSteerAngle: 45
+  speedType: 0
+  centerOfMass: {x: 0, y: 0, z: 0}
   speedTextKPH: {fileID: 0}
   speedTextMPH: {fileID: 0}
-  brakeMaterial: {fileID: 2100000, guid: 84b11fd5ec126a74597ce049c486aa22, type: 2}
-  reverseMaterial: {fileID: 2100000, guid: f7235e877dcd21e45929da84b1e9f916, type: 2}
-  brakeColor: {r: 1, g: 0, b: 0, a: 1}
-  reverseColor: {r: 1, g: 1, b: 1, a: 1}
-  brakeColorIntensity: 3
-  reverseColorIntensity: 3
 --- !u!114 &8453127106587913436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3364,7 +3459,77 @@ MonoBehaviour:
     lightObject: {fileID: 6770145651868781091}
   - type: 3
     lightObject: {fileID: 1250315811137427172}
-  lightIntensityValue: 15
+  lightIntensityValue: 4
+  brakeMaterial: {fileID: 2100000, guid: 84b11fd5ec126a74597ce049c486aa22, type: 2}
+  reverseMaterial: {fileID: 2100000, guid: f7235e877dcd21e45929da84b1e9f916, type: 2}
+  brakeColor: {r: 1, g: 1, b: 1, a: 0}
+  reverseColor: {r: 1, g: 1, b: 1, a: 0}
+  brakeColorIntensity: 8
+  reverseColorIntensity: 8
+--- !u!114 &6190547286518022024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199346252410257781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93389fe2bc75a4d419521991830fa600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5296859855910537527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199346252410257781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b20dc110904e47f8a154cdcf6433eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 7223371193904234822}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 0
+  sendIntervalMultiplier: 1
+  timelineOffset: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  bufferResetMultiplier: 3
+  changedDetection: 1
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
+--- !u!114 &290914580920803379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199346252410257781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 3743679094
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
 --- !u!1 &8830794767161365065
 GameObject:
   m_ObjectHideFlags: 0
