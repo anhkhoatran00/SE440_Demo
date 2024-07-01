@@ -1,8 +1,9 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnObstacle : MonoBehaviour
+public class SpawnObstacle : NetworkBehaviour
 {
     [SerializeField]
     private float spawnInterval = 1f;
@@ -12,18 +13,18 @@ public class SpawnObstacle : MonoBehaviour
     [SerializeField]
     private float radius = 5f;
 
-    private void Update()
-    {
-        _timer += Time.deltaTime;
-        if (_timer >= spawnInterval)
-        {
-            _timer -= spawnInterval;
-            Spawn();
-        }
+    /*   private void Update()
+       {
+           _timer += Time.deltaTime;
+           if (_timer >= spawnInterval)
+           {
+               _timer -= spawnInterval;
+               Spawn();
+           }
 
-    }
+       }*/
 
-    private void Spawn()
+    public void Spawn()
     {
         if (!ObjectPooling.Instance.CanSpawn()) return;
 
@@ -35,6 +36,7 @@ public class SpawnObstacle : MonoBehaviour
 
         obj.transform.position = pos;
 
+        NetworkServer.Spawn(obj);
     }
 
 }
