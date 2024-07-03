@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace DefauleNameSpace
 {
-
+    //XONG
     public class SingleTon<T> : MonoBehaviour where T : SingleTon<T>
     {
         private static T instance;
